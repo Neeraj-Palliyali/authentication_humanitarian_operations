@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AuthenticationController } from './authentication.controller';
 import { AuthenticationService } from './authentication.service';
+import { MongooseModule } from '@nestjs/mongoose';
 
-@Module({
+@Module({  
   controllers: [AuthenticationController],
-  providers: [AuthenticationService]
+  providers: [AuthenticationService],
 })
 export class AuthenticationModule {}
