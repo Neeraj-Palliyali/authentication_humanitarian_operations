@@ -18,7 +18,7 @@ export class AppLoggerMiddleware implements NestMiddleware {
     const userAgent = request.get('user-agent') || '';
 
     response.on('close', () => {
-      this.logger.log(JSON.stringify(request.headers))
+      this.logger.log(JSON.stringify(request.url))
       const { statusCode } = response;
       const contentLength = response.get('content-length');
 
