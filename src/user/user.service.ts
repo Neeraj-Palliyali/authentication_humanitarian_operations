@@ -12,26 +12,30 @@ export class UserService {
             Model<UserDocument>,
     ) { }
 
-    _getUserDetails(user: UserDocument): UserDetails {
+    async getUserDetails(id: string): Promise<UserDetails> {
+        const user = await this.findById(id);
+        if (!user) return null;
+       
         return {
-            id: user._id,
+            id: user.id,
             username: user.username,
             email: user.email,
         };
     }
 
+    // Helper functions for identifiying user
     async findByEmail(email: string): Promise<UserDocument | null> {
         return this.userModel.findOne({ email }).exec();
     }
     async findByusername(username: string): Promise<UserDocument | null> {
         return this.userModel.findOne({ username }).exec();
     }
-
-    async fidnById(id: string): Promise<UserDetails | null> {
+    async findById(id: string): Promise<UserDocument | null> {
         const user = await this.userModel.findById(id).exec();
-        if (!user) return null;
-        return this._getUserDetails(user);
+        return user;
     }
+
+    // Create the user
     async create(
         username: string,
         email: string,

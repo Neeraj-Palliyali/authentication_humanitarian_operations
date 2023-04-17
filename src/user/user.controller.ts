@@ -1,13 +1,15 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Request, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDetails } from './user_info.interface';
+import { JwtGuard } from 'src/authentication/guards/jwt.guard';
 
-@Controller('user')
+@Controller()
 export class UserController {
-    constructor(private userService: UserService){}
+    constructor(private userService: UserService) { }
 
-    @Get(':id')
-    getUser(@Param('id') id : string): Promise<UserDetails|null>{
-        return this.userService.fidnById(id);
+    @Get('profiles')
+    @UseGuards(JwtGuard)
+    getUser(@Request() req: any): Promise<UserDetails | null> {
+        return this.userService.getUserDetails(req.user.id);
     }
 }
