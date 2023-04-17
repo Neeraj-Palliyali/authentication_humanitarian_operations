@@ -47,10 +47,10 @@ export class AuthenticationService {
         Promise<UserDetails | null> {
         const user = await this.userService.findByEmail(email);
         const doesUserExist = !!user;
-        if (!doesUserExist) return null;
+        if (!doesUserExist)  { throw new BadRequestException('No User exists!!'); };
 
         const passwordCheck = await this.passwordCheck(password, user.password);
-        if (!passwordCheck) return null;
+        if (!passwordCheck) { throw new BadRequestException('The password entered does not match!!'); };
 
         return this.userService.getUserDetails(user.id);
 
