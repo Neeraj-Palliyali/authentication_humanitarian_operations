@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "4a581021-f546-41ff-81d8-c9e559485b39",
+		"name": "Login_flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sadfs",
+						"value": "adfasdf",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Test123\",\r\n    \"email\":\"testing2@gmail.com\",\r\n    \"password\":\"testing@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile Info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQzZDE4MDRiNGEyOTY1YTI4MmViNTRmIiwidXNlcm5hbWUiOiJUZXN0MTIzIiwiZW1haWwiOiJ0ZXN0aW5nMkBnbWFpbC5jb20ifSwiaWF0IjoxNjgxNzI1NDY3LCJleHAiOjE2ODE3NjE0Njd9.SLqvaXFinGVU4VXHwQTY9J3cU1kJj2H0tbGwLJlBDo0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/profiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"testing2@gmail.com\",\r\n    \"password\":\"testing@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQzZDE4MDRiNGEyOTY1YTI4MmViNTRmIiwidXNlcm5hbWUiOiJUZXN0MTIzIiwiZW1haWwiOiJ0ZXN0aW5nMkBnbWFpbC5jb20ifSwiaWF0IjoxNjgxNzI1NDY3LCJleHAiOjE2ODE3NjE0Njd9.SLqvaXFinGVU4VXHwQTY9J3cU1kJj2H0tbGwLJlBDo0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"old_password\": \"thisisme@1234\",\r\n    \"new_password\": \"thisisme@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/actions/changepassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"actions",
+						"changepassword"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
