@@ -25,3 +25,9 @@ $ npm run start:prod
 
 ## Queries 
 
+1. Signup/register account
+3. Login with password
+4. Change password
+5. View details of acount
+
+### API Documents are added with a postman collection
